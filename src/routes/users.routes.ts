@@ -11,15 +11,6 @@ interface UserResponse {
   password?: string;
 }
 
-export class UserMap {
-  public static toDto(user: User): any {
-    return {
-      name: user.name,
-      email: user.email,
-    };
-  }
-}
-
 usersRouter.post('/', async (request, response) => {
   try {
     const { name, email, password } = request.body;
