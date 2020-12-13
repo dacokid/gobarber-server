@@ -43,7 +43,8 @@
           "PascalCase"
         ]
       }
-    ]
+    ],
+    "no-useless-constructor": "off"
   },
   "settings": {
     "import/resolver": {
