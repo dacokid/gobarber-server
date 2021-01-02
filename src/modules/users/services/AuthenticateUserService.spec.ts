@@ -37,25 +37,17 @@ describe('AuthenticateUser', () => {
     expect(response.user).toEqual(user);
   });
 
-  it('it should not be able to authenticate with non existing user', async () => {
+  it('should not be able to authenticate with non existing user', async () => {
     await expect(
       authenticateUser.execute({
-        email: 'johndoe@example.com',
+        email: 'email@email.com',
         password: '123456',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('it should be able to authenticate with wrong password', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const createUser = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-
-    await createUser.execute({
+  it('should not be able to authenticate with wrong password', async () => {
+    await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
@@ -64,7 +56,7 @@ describe('AuthenticateUser', () => {
     await expect(
       authenticateUser.execute({
         email: 'johndoe@example.com',
-        password: 'wrong-password',
+        password: 'wrong-pass',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
