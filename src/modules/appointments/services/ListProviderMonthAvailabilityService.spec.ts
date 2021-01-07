@@ -4,17 +4,17 @@ import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRe
 import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
-let listProviderMothAvailability: ListProviderMonthAvailabilityService;
+let listProviderMonthAvailability: ListProviderMonthAvailabilityService;
 
 describe('UpdateProfile', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
-    listProviderMothAvailability = new ListProviderMonthAvailabilityService(
+    listProviderMonthAvailability = new ListProviderMonthAvailabilityService(
       fakeAppointmentsRepository,
     );
   });
 
-  it('should be able to list the moth availability from provider', async () => {
+  it('should be able to list the month availability from provider', async () => {
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
       date: new Date(2021, 4, 20, 8, 0, 0),
@@ -70,7 +70,7 @@ describe('UpdateProfile', () => {
       date: new Date(2021, 4, 21, 8, 0, 0),
     });
 
-    const availability = await listProviderMothAvailability.execute({
+    const availability = await listProviderMonthAvailability.execute({
       provider_id: 'user',
       year: 2021,
       month: 5,
