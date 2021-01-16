@@ -6,17 +6,15 @@ import AppError from '@shared/errors/AppError';
 
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
+import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
   email: string;
   password: string;
 }
 
-interface IUserResponse {
-  user: {
-    email: string;
-    password?: string;
-  };
+interface IResponse {
+  user: User;
   token: string;
 }
 
@@ -29,7 +27,7 @@ class AuthenticationUserService {
     private hashProvider: IHashProvider,
   ) {}
 
-  public async execute({ email, password }: IRequest): Promise<IUserResponse> {
+  public async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
