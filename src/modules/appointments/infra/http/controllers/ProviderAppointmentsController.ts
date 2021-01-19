@@ -19,8 +19,6 @@ export default class ProviderAppointmentsController {
       year,
     });
 
-    console.log(appointments);
-
     return response.json(appointments);
   }
 }

@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@types/ioredis": "^4.17.11",
+    "@types/ioredis": "^4.19.0",
     "@types/uuid": "^8.3.0",
     "aws-sdk": "^2.828.0",
     "bcryptjs": "^2.4.3",
