@@ -2,7 +2,7 @@
 
 # GoBarber Server
 
-Backend do projeto **principal** desenvolvido durante o bootcamp GoStack da Rocketseat 🚀 para gerenciamento de agendamentos em barbearias. NodeJS, Typescript, Express, TypeORM, JWT
+Backend do projeto **principal** desenvolvido durante o bootcamp GoStack da Rocketseat 🚀 para gerenciamento de agendamentos em barbearias 🪒🧔💈. NodeJS, Typescript, Express, TypeORM, JWT
 
 ## Recuperação de senha
 
